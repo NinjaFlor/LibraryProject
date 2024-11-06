@@ -5,6 +5,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Construtor para criar uma categoria com código e nome.
+ * Com os métodos Getter e Setter que fazem parte do conceito de encapsulamento:
+ * Getter : Método para obter o valor de um atributo.
+ * Setter : Método para modificar o valor de um atributo.
+ */
+
 public class Categoria {
 
     private int cod_categoria;

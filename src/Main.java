@@ -5,9 +5,11 @@ import java.util.Scanner;
 
 public class Main {
 
+    // Função Scanner para ler a entrada do usuário
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        // Estrutura de repetição principal do menu do sistema
         while (true) {
             System.out.println("\n===== Sistema de Biblioteca =====");
             System.out.println("1. Gerenciar Usuários");
@@ -17,9 +19,11 @@ public class Main {
             System.out.println("5. Sair");
             System.out.print("Escolha uma opção: ");
 
+            // Lê a opção escolhida pelo usuário
             int opcao = scanner.nextInt();
-            scanner.nextLine(); // Consumir a quebra de linha
+            scanner.nextLine();
 
+            // Chama a função correspondente com base na opção escolhida
             switch (opcao) {
                 case 1 -> gerenciarUsuarios();
                 case 2 -> gerenciarCategorias();
@@ -35,6 +39,7 @@ public class Main {
         }
     }
 
+    // Função para gerenciar usuários
     private static void gerenciarUsuarios() {
         System.out.println("\n===== Gerenciamento de Usuários =====");
         System.out.println("1. Adicionar Usuário");
@@ -47,7 +52,7 @@ public class Main {
 
         try {
             switch (opcao) {
-                case 1 -> {
+                case 1 -> { // Adiciona um novo usuário
                     System.out.print("CPF: ");
                     String cpf = scanner.nextLine();
                     System.out.print("Nome: ");
@@ -67,14 +72,14 @@ public class Main {
                     usuario.adicionarUsuario();
                     System.out.println("Usuário adicionado com sucesso.");
                 }
-                case 2 -> {
+                case 2 -> { // Lista os usuários já inseridos no banco
                     List<Usuario> usuarios = Usuario.listarUsuarios();
                     System.out.println("Lista de Usuários:");
                     for (Usuario u : usuarios) {
                         System.out.println("CPF: " + u.getCpf_usuario() + " - Nome: " + u.getNome());
                     }
                 }
-                case 3 -> {
+                case 3 -> { // Atualiza os usuários indicados pela chave
                     System.out.print("CPF do usuário a ser atualizado: ");
                     String cpf = scanner.nextLine();
                     Usuario usuario = Usuario.buscarUsuario(cpf);
@@ -94,7 +99,7 @@ public class Main {
                         System.out.println("Usuário não encontrado.");
                     }
                 }
-                case 4 -> {
+                case 4 -> { // Exclui os uauários indicados pela chave
                     System.out.print("CPF do usuário a ser excluído: ");
                     String cpf = scanner.nextLine();
                     Usuario usuario = Usuario.buscarUsuario(cpf);
